@@ -1,0 +1,99 @@
+/* ==========================================
+   1. RESET Y CONFIGURACIÓN DEL FONDO
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  /* Fondo oscuro con degradado profesional */
+  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+  color: #f8fafc;
+}
+
+/* ==========================================
+   2. MENÚ DE NAVEGACIÓN CENTRADO Y ELEGANTE
+   ========================================== */
+.header-principal {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1.2rem 1rem;
+  /* Efecto de cristal flotante borroso */
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Flexbox centrado horizontalmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem; /* Espacio entre botones */
+}
+
+/* Estilos de las pestañas/botones */
+.nav-link {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0.7rem 1.6rem;
+  border-radius: 99px; /* Forma de píldora redondeada */
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Línea de brillo inferior (oculta por defecto) */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 3px;
+  background: #38bdf8;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #38bdf8;
+  transition: width 0.3s ease;
+}
+
+/* EFECTOS INTERACTIVOS (HOVER) */
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px); /* Eleva ligeramente el botón */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.nav-link:hover::after {
+  width: 40%; /* La línea aparece debajo al pasar el cursor */
+}
+
+/* ESTADO ACTIVO (Página actual seleccionada) */
+.nav-link.active {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 50%; /* Línea permanente en la página activa */
+}
